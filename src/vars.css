@@ -1,0 +1,20 @@
+body {
+    --green-lg: #a1db50;
+    --green-md: #93d334;
+    --green-dk: #7aab2d;
+
+    --gray-lg: #52656c;
+    --gray-md: #38464f;
+    --gray-dk: #2c3b42;
+
+    --bg-light: #202f36;
+    --bg-dark: #141f23;
+
+    --border-light: #39434c;
+    --border-dark: #15242b;
+
+    --text-color: #f9fafb;
+
+    --height-header-main: 45px;
+    --height-bottom-nav: 60px;
+}

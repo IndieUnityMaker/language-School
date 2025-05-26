@@ -1,0 +1,25 @@
+.quiz_image {
+    border: 1px solid var(--border-dark);
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 5px;
+
+    background-color: var(--border-light);
+}
+.quiz_image img {
+    width: 160px;
+    height: 200px;
+    object-fit: contain;
+    height: auto;
+
+    border-radius: 4px;
+    border-bottom: 1px solid var(--border-dark);
+}
+.quiz_image p {
+    display: block;
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+
+    color: aliceblue;
+}

@@ -1,0 +1,9 @@
+.page {
+    background-color: var(--bg-dark);
+    height: calc(100vh - var(--height-header-main));
+    margin-top: var(--height-header-main);
+}
+
+body {
+    background-color: var(--bg-dark);
+}

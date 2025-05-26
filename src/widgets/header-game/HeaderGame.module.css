@@ -1,0 +1,27 @@
+.header_main {
+    display: flex;
+    align-items: center;
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    height: var(--height-header-main);
+    background-color: var(--bg-light);
+    border-bottom: 1px solid var(--border-dark);
+    z-index: 50;
+}
+
+.link {
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    margin-left: 10px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: aliceblue;
+    opacity: 0.7;
+
+    background-color: var(--border-dark);
+}

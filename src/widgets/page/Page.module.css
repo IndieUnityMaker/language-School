@@ -1,0 +1,12 @@
+.page {
+    background-color: var(--bg-dark);
+    height: calc(
+        100vh - (var(--height-header-main) + var(--height-bottom-nav))
+    );
+    margin-top: var(--height-header-main);
+    margin-bottom: var(--height-bottom-nav);
+}
+
+body {
+    background-color: var(--bg-dark);
+}

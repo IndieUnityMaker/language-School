@@ -1,0 +1,23 @@
+.quiz_letters {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    flex-wrap: wrap;
+    width: 70%;
+}
+
+.quiz_letter {
+    width: 19px;
+    height: 22px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: aliceblue;
+    background-color: var(--border-light);
+    border-radius: 3px;
+}
