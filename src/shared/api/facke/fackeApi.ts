@@ -18,11 +18,11 @@ export const getImageQuizLesson = (id: string) => {
   })
 }
 
-export const getWordPuzzleLesson = (id: string) => {
+export const getWordPuzzleLesson = (id: string): Promise<WordLesson> => {
   return new Promise((res) => {
     setTimeout(() => {
       const lesson = wordLessons.find((item) => item.id === id)
-      res(lesson)
+      res(lesson as WordLesson)
     }, 1000);
   })
 }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import type { ProgressStatuses } from "../ui/game-progress/GameProgress";
 
 
@@ -8,14 +8,16 @@ export const useGameStatuses = (length: number) => {
     return Array(length).fill("default");
   });
 
-  const setStatus = (index: number, status: ProgressStatuses) => {
-    console.log(status);
+  const setStatus = useCallback((index: number, status: ProgressStatuses) => {
+
     setStatuses((prev) => {
       const newStatuses = [...prev];
       newStatuses[index] = status;
       return newStatuses;
     });
-  };
+  }, []);
 
-  return { statuses, setStatus }
+  const memoizedStatuses = useMemo(() => statuses, [statuses]);
+
+  return { statuses: memoizedStatuses, setStatus };
 }
