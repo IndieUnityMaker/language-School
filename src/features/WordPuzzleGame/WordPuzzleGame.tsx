@@ -17,12 +17,13 @@ export const WordPuzzleGame = () => {
     const [lesson, setLesson] = useState<WordLesson>();
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [letters, setLetters] = useState<string[] | []>([]);
+    const [isComplete, setIsComplete] = useState(false);
 
     const { id } = useParams();
 
     useEffect(() => {
         getWordPuzzleLesson(id as string).then((data) => {
-            setLesson(data as WordLesson);
+            setLesson(data);
         });
     }, [id]);
 
@@ -39,6 +40,20 @@ export const WordPuzzleGame = () => {
         setLetters(preloadLetters);
     }, [currentQuestionIndex, lesson?.questions]);
 
+    useEffect(() => {
+        if (!isComplete) return;
+        let timer: number;
+
+        if (isComplete) {
+            timer = setTimeout(() => {
+                setIsComplete(false);
+                setCurrentQuestionIndex((prev) => prev + 1);
+            }, 700);
+        }
+
+        return () => clearTimeout(timer);
+    }, [isComplete]);
+
     if (!lesson) {
         return (
             <PageGame>
@@ -49,29 +64,20 @@ export const WordPuzzleGame = () => {
 
     const currentQuestion = lesson.questions[currentQuestionIndex];
     const isLastQuestion = currentQuestionIndex === lesson.questions.length - 1;
-    //console.log("lesson: ", lesson);
-    //console.log("currentQuestion: ", currentQuestion);
-    console.log("currentQuestionIndex: ", currentQuestionIndex);
-    console.log("isLastQuestion: ", isLastQuestion);
 
     const checkLettersComplete = (letters: string[]) => {
         const question = lesson?.questions[currentQuestionIndex];
         const correctWord = question?.correctAnswer.text;
-        const isComplete = letters.every((letter) => letter !== "");
+        const completed = letters.every((letter) => letter !== "");
 
-        if (isComplete) {
+        if (completed) {
             const isCorrect = letters.join("") === correctWord;
-
             setStatus(currentQuestionIndex, isCorrect ? "complete" : "error");
 
             if (!isLastQuestion) {
-                setTimeout(() => {
-                    setCurrentQuestionIndex((prev) => prev + 1);
-                }, 700);
+                setIsComplete(true);
             } else {
                 // Игра завершена
-                console.log("Game completed!");
-                console.log("Game completed!");
                 console.log("Game completed!");
             }
         }
